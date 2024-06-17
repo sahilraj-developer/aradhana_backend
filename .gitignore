@@ -1,2 +1,11 @@
-# Ignore env file
-config.env
+# Ignore environment variables
+.env
+
+# Ignore config directory
+/config
+
+# Other common ignore patterns
+node_modules/
+dist/
+*.log
+.DS_Store
