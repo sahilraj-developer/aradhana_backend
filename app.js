@@ -14,24 +14,24 @@ const app = express();
 dotenv.config({ path: './config/config.env' })
 
 app.use(cors({
-    origin: [process.env.FRONTEND_URL],
-    methods: ['GET','POST','DELETE','PUT'],
+    origin: `${process.env.FRONTEND_URL}`,
+    methods: ['GET', 'POST', 'DELETE', 'PUT'],
     credentials: true
 }));
 
 app.use(cookieParser());
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 
 app.use(
     fileUpload({
-    useTempFiles: true,
-    tempFileDir: '/tmp/',   
-}));
+        useTempFiles: true,
+        tempFileDir: '/tmp/',
+    }));
 
-app.use('/api/user',userRouter);
-app.use('/api/job',jobRouter);
-app.use('/api/application',applicationRouter);
+app.use('/api/user', userRouter);
+app.use('/api/job', jobRouter);
+app.use('/api/application', applicationRouter);
 
 dbConnection();
 
